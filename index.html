@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f7fb">
+  <meta name="theme-color" id="theme-color" content="#f5f7fb">
   <title>Beam Designer</title>
   <style>
     :root {
@@ -26,6 +26,25 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-synthesis: none;
       text-rendering: optimizeLegibility;
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #e6edf7;
+      --muted: #a0adc1;
+      --line: #354156;
+      --paper: #1b2638;
+      --canvas: #111827;
+      --accent: #77a6f5;
+      --accent-dark: #91b6f8;
+      --accent-soft: #243650;
+      --green: #60cf91;
+      --green-soft: #1d3d2d;
+      --amber: #f0bf62;
+      --amber-soft: #40351f;
+      --red: #ff8585;
+      --red-soft: #45292c;
+      --shadow: 0 12px 32px rgb(0 0 0 / 25%), 0 2px 6px rgb(0 0 0 / 16%);
     }
 
     * { box-sizing: border-box; }
@@ -73,6 +92,40 @@
 
     .brand-mark svg { width: 19px; height: 19px; }
     .topbar-note { color: var(--muted); font-size: 12px; }
+    .topbar-actions { display: flex; align-items: center; gap: 16px; }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 35px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      color: var(--ink);
+      background: var(--paper);
+      font-size: 10px;
+      font-weight: 720;
+      white-space: nowrap;
+    }
+
+    .theme-toggle:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .theme-toggle svg { width: 15px; height: 15px; }
+    .theme-toggle svg[hidden] { display: none; }
+
+    .theme-warning {
+      width: min(1510px, calc(100% - 28px));
+      margin: 12px auto 0;
+      padding: 9px 12px;
+      border: 1px solid #e8c97e;
+      border-radius: 8px;
+      color: #765317;
+      background: #fffbf1;
+      font-size: 11px;
+    }
+
+    .theme-warning[hidden] { display: none; }
 
     .layout {
       width: min(1510px, 100%);
@@ -496,6 +549,63 @@
       stroke-linejoin: round;
     }
 
+    :root[data-theme="dark"] .topbar { background: rgb(17 24 39 / 94%); }
+    :root[data-theme="dark"] .panel,
+    :root[data-theme="dark"] .card { border-color: #2e3a4e; }
+    :root[data-theme="dark"] .control,
+    :root[data-theme="dark"] .number-control,
+    :root[data-theme="dark"] .mini-field input {
+      color: var(--ink);
+      background: #172235;
+      border-color: #3a475d;
+      color-scheme: dark;
+    }
+    :root[data-theme="dark"] .load-row { border-color: #354156; background: #172235; }
+    :root[data-theme="dark"] .load-row-head,
+    :root[data-theme="dark"] .field-label,
+    :root[data-theme="dark"] .section-heading h2 { color: #c7d2e3; }
+    :root[data-theme="dark"] .mini-field label,
+    :root[data-theme="dark"] .help-text { color: #9aa8bd; }
+    :root[data-theme="dark"] .secondary-button { color: var(--ink); background: #202c40; border-color: #3a475d; }
+    :root[data-theme="dark"] .secondary-button:hover { background: #29384f; }
+    :root[data-theme="dark"] .scope-note,
+    :root[data-theme="dark"] .theme-warning {
+      color: #f1d28c;
+      background: #382f1d;
+      border-color: #67552c;
+    }
+    :root[data-theme="dark"] .status-message { color: #ffb0ac; background: #402528; border-color: #68383c; }
+    :root[data-theme="dark"] .scene-heading { border-color: #2e3a4e; }
+    :root[data-theme="dark"] .hover-readout { color: #d3deef; background: rgb(27 38 56 / 96%); border-color: #43516a; }
+    :root[data-theme="dark"] .stat-detail,
+    :root[data-theme="dark"] .check-divider,
+    :root[data-theme="dark"] .check-allowable { color: #9aa8bd; }
+    :root[data-theme="dark"] .check-allowable strong,
+    :root[data-theme="dark"] .ratio-caption strong { color: #c5d1e2; }
+    :root[data-theme="dark"] .ratio-track { background: #303b4f; }
+    :root[data-theme="dark"] .recommendation { border-color: #344967; background: linear-gradient(110deg, #1d2c43, #1b2638 80%); }
+    :root[data-theme="dark"] .recommendation-label,
+    :root[data-theme="dark"] .recommendation-detail { color: #a5b8d5; }
+    :root[data-theme="dark"] .recommendation-main { color: #d2e1ff; }
+    :root[data-theme="dark"] .recommendation .primary-button:disabled { color: #a5b0c1; border-color: #3b485d; background: #2b3648; }
+    :root[data-theme="dark"] .empty-loads { color: #a0adc1; border-color: #3a475d; }
+    :root[data-theme="dark"] .svg-label { fill: #a8b5c9; }
+    :root[data-theme="dark"] .svg-small { fill: #96a5bb; }
+    :root[data-theme="dark"] .svg-title { fill: #c8d5e8; }
+    :root[data-theme="dark"] .svg-axis,
+    :root[data-theme="dark"] .svg-base { stroke: #46536a; }
+    :root[data-theme="dark"] .svg-beam { fill: #263b59; stroke: #86aef1; }
+    :root[data-theme="dark"] .svg-load { stroke: #88adf0; }
+    :root[data-theme="dark"] .svg-load.udl { stroke: #c49aef; }
+    :root[data-theme="dark"] .svg-reaction { stroke: #65cf98; }
+    :root[data-theme="dark"] .svg-support { fill: #29364b; stroke: #91a0b7; }
+    :root[data-theme="dark"] .svg-chart-shear { fill: rgb(91 145 236 / 24%); stroke: #79a8ff; }
+    :root[data-theme="dark"] .svg-chart-moment { fill: rgb(75 137 231 / 24%); stroke: #82b0ff; }
+    :root[data-theme="dark"] .svg-chart-deflection { fill: rgb(155 100 219 / 24%); stroke: #c094f0; }
+    :root[data-theme="dark"] .svg-max-label { fill: #d1dced; stroke: var(--paper); }
+    :root[data-theme="dark"] .brand-mark,
+    :root[data-theme="dark"] .primary-button { color: #14213a; }
+
     .point-marker { fill: #2867e8; stroke: white; stroke-width: 2; cursor: ew-resize; }
     .point-marker:hover { fill: #174eae; }
     .crosshair { stroke: #40536f; stroke-width: 1; stroke-dasharray: 4 4; pointer-events: none; }
@@ -521,6 +631,7 @@
     @media (max-width: 760px) {
       .topbar { height: 58px; }
       .topbar-note { display: none; }
+      .topbar-actions { gap: 0; }
       .layout { grid-template-columns: minmax(0, 1fr); padding: 16px 12px 28px; }
       .input-panel { position: static; }
       .input-panel h1 { font-size: 21px; }
@@ -570,8 +681,21 @@
       </span>
       <span>Beam Designer</span>
     </div>
-    <span class="topbar-note">Single-span analysis · preliminary sizing</span>
+    <div class="topbar-actions">
+      <span class="topbar-note">Single-span analysis · preliminary sizing</span>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg id="theme-moon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M16.5 12.5A7 7 0 0 1 7.5 3.5a7.25 7.25 0 1 0 9 9Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg id="theme-sun" viewBox="0 0 20 20" fill="none" aria-hidden="true" hidden>
+          <circle cx="10" cy="10" r="3.2" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10 1.8v2m0 12.4v2M1.8 10h2m12.4 0h2M4.2 4.2l1.4 1.4m8.8 8.8 1.4 1.4m0-11.6-1.4 1.4m-8.8 8.8-1.4 1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span id="theme-toggle-label">Dark mode</span>
+      </button>
+    </div>
   </header>
+  <div class="theme-warning" id="theme-warning" role="status" hidden></div>
 
   <main class="layout">
     <aside class="panel input-panel" aria-label="Beam inputs">
@@ -797,6 +921,8 @@
       };
 
       const byId = (id) => document.getElementById(id);
+      const themeRoot = document.documentElement;
+      const themeWarning = byId("theme-warning");
       const number = (value) => Number.isFinite(value) ? value : 0;
       const fmt = (value, digits = 2) => Number.isFinite(value)
         ? value.toLocaleString("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits })
@@ -805,6 +931,34 @@
       const esc = (value) => String(value).replace(/[&<>"']/g, (char) => ({
         "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
       })[char]);
+
+      function applyTheme(theme) {
+        const dark = theme === "dark";
+        themeRoot.dataset.theme = dark ? "dark" : "light";
+        byId("theme-toggle").setAttribute("aria-pressed", String(dark));
+        byId("theme-toggle").setAttribute("aria-label", `Switch to ${dark ? "light" : "dark"} mode`);
+        byId("theme-toggle-label").textContent = dark ? "Light mode" : "Dark mode";
+        byId("theme-moon").hidden = dark;
+        byId("theme-sun").hidden = !dark;
+        byId("theme-color").setAttribute("content", dark ? "#111827" : "#f5f7fb");
+      }
+
+      function showThemeWarning(message, error) {
+        console.error(message, error);
+        themeWarning.textContent = `${message} The theme still works for this page, but the preference may not persist.`;
+        themeWarning.hidden = false;
+      }
+
+      function initializeTheme() {
+        let theme = "light";
+        try {
+          const savedTheme = window.localStorage.getItem("beam-designer-theme");
+          if (savedTheme === "light" || savedTheme === "dark") theme = savedTheme;
+        } catch (error) {
+          showThemeWarning("Could not read the saved theme preference.", error);
+        }
+        applyTheme(theme);
+      }
 
       function currentSections() {
         return SECTION_TABLES[state.material];
@@ -1433,6 +1587,17 @@
       }
 
       function bindEvents() {
+        byId("theme-toggle").addEventListener("click", () => {
+          const theme = themeRoot.dataset.theme === "dark" ? "light" : "dark";
+          applyTheme(theme);
+          try {
+            window.localStorage.setItem("beam-designer-theme", theme);
+            themeWarning.hidden = true;
+            themeWarning.textContent = "";
+          } catch (error) {
+            showThemeWarning("Could not save the theme preference.", error);
+          }
+        });
         byId("span-slider").addEventListener("input", (event) => {
           state.span = Number(event.currentTarget.value);
           byId("span-number").value = String(state.span);
@@ -1508,6 +1673,7 @@
         });
       }
 
+      initializeTheme();
       byId("span-number").setAttribute("data-control-key", "span");
       updateSectionOptions();
       renderLoads();

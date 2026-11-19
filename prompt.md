@@ -195,6 +195,12 @@ save all the prompts from the session to prompt.md according to the rule from ag
 review spec.md and build an initial app based on it
 ```
 
+### 9. Add dark mode
+
+```text
+can you add a darkmode button
+```
+
 ## Work completed
 
 - Created `00_planning/`, `01_data/`, `02_validation/`, and `03_output/`, each with a README describing what belongs there.
@@ -204,3 +210,5 @@ review spec.md and build an initial app based on it
 - Created this prompt and activity record.
 - Built the initial single-file web app in `index.html`; all four specification validation cases matched in browser checks.
 - Checked invalid-input handling, uniform-load clipping, point-load dragging, diagram hover values, and the mobile layout.
+- Added a dark-mode toggle with saved theme preference and coordinated chart colors.
+- Updated `spec.md` to include the theme toggle and persisted preference.

@@ -78,6 +78,8 @@ sizing a floor beam or deck joist.
 - Everything updates immediately whenever any input changes.
 
 ## Look and feel
+- A header button toggles between light and dark mode and remembers the
+  preference across reloads.
 - Opens with an example already loaded (20 ft simply supported W12x26
   with a 1 kip/ft uniform load over the full span), so it is useful the
   moment it opens.
