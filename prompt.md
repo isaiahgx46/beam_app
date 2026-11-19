@@ -189,10 +189,18 @@ hey can you set my git userame to my byu user email isaiahsg@byu.edu and my name
 save all the prompts from the session to prompt.md according to the rule from agents.md
 ```
 
+### 8. Build the initial app
+
+```text
+review spec.md and build an initial app based on it
+```
+
 ## Work completed
 
 - Created `00_planning/`, `01_data/`, `02_validation/`, and `03_output/`, each with a README describing what belongs there.
 - Updated `AGENTS.md` to document the project layout and file-placement rule.
 - Saved the supplied polished Beam Designer specification in `spec.md`.
 - Set the global Git author name to `Isaiah Garcia` and email to `isaiahsg@byu.edu`.
-- Created this prompt and activity record. No application code was built.
+- Created this prompt and activity record.
+- Built the initial single-file web app in `index.html`; all four specification validation cases matched in browser checks.
+- Checked invalid-input handling, uniform-load clipping, point-load dragging, diagram hover values, and the mobile layout.
