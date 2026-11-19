@@ -195,10 +195,52 @@ save all the prompts from the session to prompt.md according to the rule from ag
 review spec.md and build an initial app based on it
 ```
 
-### 9. Add dark mode
+### 9. Commit and push
+
+```text
+commit and push
+```
+
+### 10. Verify Git identity
+
+```text
+isaiahgarcia@Isaiahs-MacBook-Air-623 beam_app %  how to vonifrm my git is set up with my proper username
+```
+
+### 11. Confirm Git identity
+
+```text
+wait so now my git is set up ?
+```
+
+### 12. Add dark mode
 
 ```text
 can you add a darkmode button
+```
+
+### 13. Request app URL
+
+```text
+can you also give me the url to my app
+```
+
+### 14. Clarify GitHub username
+
+```text
+isaiahgx46 is that my user for github i thought it was isaiahsg
+```
+
+### 15. Confirm app and request working URL
+
+```text
+oh okay so my name Isaiah Garcia my email is isaiahsg@byu.edu and my "user name" is isaiahgx46 gotcha ill refer to my user as such but my app is good right, i need to be able to send my url right now maybe after you confirm everything is good
+```
+
+### 16. Approve Pages setup
+
+```text
+enable_pages: true
 ```
 
 ## Work completed
@@ -212,3 +254,5 @@ can you add a darkmode button
 - Checked invalid-input handling, uniform-load clipping, point-load dragging, diagram hover values, and the mobile layout.
 - Added a dark-mode toggle with saved theme preference and coordinated chart colors.
 - Updated `spec.md` to include the theme toggle and persisted preference.
+- Committed and pushed the dark-mode update; verified the repository contains `index.html` on `main`.
+- Checked the Pages URL and configuration: the app is pushed, but Pages is not enabled yet, so the public URL currently returns 404.
