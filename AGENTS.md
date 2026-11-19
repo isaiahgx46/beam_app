@@ -15,3 +15,7 @@
 - `03_output/` is for screenshots and exported results.
 
 Save every new file in the folder that matches its purpose. Keep the four numbered folders for their listed contents; keep the top-level files listed above at the project root.
+
+record every prompt and an assembly of what i did in a file called prompt.md
+
+after every prompt commit changes to github
